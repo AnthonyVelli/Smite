@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="smite">
+	<head>
+		 <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+		 <link rel='stylesheet' type="text/css" href="static/styles.css"  />
+		<script src="angular/angular.js" defer></script>
+		<script src="angular-route/angular-route.js" defer></script>
+		<script src='angular-ui-router/release/angular-ui-router.js' defer></script>
+		<script src='jquery/dist/jquery.min.js' defer></script>
+		<script src='bootstrap/dist/js/bootstrap.min.js' defer></script>
+		<script src='home.js' defer></script>
+		<script src='angularElements/utilsFactory.js' defer></script>
+		<script src='angularElements/players/allGods_Factory.js' defer></script>
+		<script src='angularElements/players/godList_Directive.js' defer></script>
+		<script src='angularElements/players/leftPlayer_Controller.js' defer></script>
+		<script src='angularElements/players/rightPlayer_Controller.js' defer></script>
+		<script src='angularElements/players/BossController.js' defer></script>
+		<script src='angularElements/fight/fight_Controller.js' defer></script>
+		<script src='angularElements/fight/fight_State.js' defer></script>
+		
+
+	</head>
+	<body ng-controller='BossController'>
+	<base href="/">
+		<container class='flexcontainer'>
+
+		
+			<div class='player-half' ng-controller="LeftPlayer">
+				
+					<div class='all-gods'>					
+						<god-list god-list="gods" action="addGod"></god-list>	
+					</div>					
+				
+					<div class='fighting-gods'>
+						<god-list god-list="chosenGods" action="removeGod"></god-list>
+					</div>
+
+					
+			</div>
+			<div class='player-half' ng-controller="RightPlayer">
+				
+					<div class='fighting-gods'>
+						<god-list god-list="chosenGods" action="removeGod"></god-list>
+					</div>
+					<div class='all-gods' >
+						<god-list god-list="gods" action="addGod"></god-list>
+					</div>
+				
+			</div>
+		</container>
+		<div class="fight" ng-controller='FightController'>
+			<div class="progress-bar-container">
+					<div class="progress-bar" role="progressbar"
+				  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+				    40% Complete (success)
+				  </div>
+				  <div class="progress-bar" role="progressbar"
+				  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+				    40% Complete (success)
+				  </div>
+			  </div>
+			<button id='fight-button' ng-click='startFight()'>FIGHT!</button>	
+			<button ng-click='getParams()'>
+		</div>
+
+		
+		
+	</body>
+
+</html>

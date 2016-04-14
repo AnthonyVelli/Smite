@@ -1,0 +1,28 @@
+{
+  "name": "httptest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "cheerio": "^0.20.0",
+    "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "lodash": "^4.10.0",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.9.1",
+    "requestify": "^0.1.17"
+  }
+}

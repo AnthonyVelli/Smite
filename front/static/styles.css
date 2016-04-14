@@ -1,0 +1,64 @@
+.body{
+  height: 100vh;
+  position: fixed;
+}
+
+
+
+.flexcontainer{
+  margin: 0;
+  height: 90vh;
+  display: flex;
+  
+  flex-direction: row;
+  justify-content: space-between;
+
+  
+}
+
+.all-gods { 
+  width: 20%;
+  overflow-y: scroll; 
+}
+
+
+.fighting-gods{ 
+  width: 75%;
+  max-height: 70vh;  
+}
+
+
+.player-half {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.fight {
+  height: 10vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%
+} 
+
+.progress-bar-container{
+  width: 70vw;
+  float: left;
+}
+
+#fight-button{
+
+}
+
+
+.progress-bar{
+  height: 100%;
+  width: 80vw;
+}
+
