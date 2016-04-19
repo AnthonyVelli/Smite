@@ -1,4 +1,15 @@
 
-	<p class="list-group">
-		<p ng-repeat="god in godList" a ng-click='action()(god, $event); $event.stopPropagation()'>{{god.God}}</p>
-	</p>
+	
+		<god type="button" ng-repeat="god in godList" ng-click='action()(god, $event)'ng-class='side'>
+			<div class="god-popover"  ng-controller="PopoverCtrl" ng-mouseover='showPopover(god, $event, side)' ng-mouseleave='hidePopover()'>
+				<div class='god-minimal'>
+					<h3>{{god.God}}</h3>
+					<ul class="list-group">
+					  <li>{{god.Class}}</li>
+					  <li>{{god.Type}}</li>
+					  <li ng-repeat="pro in god.Pros">{{pro}}</li>
+					</ul>
+				</div>		
+			</div>
+		</god>
+

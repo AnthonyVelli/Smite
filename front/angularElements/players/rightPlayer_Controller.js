@@ -4,16 +4,19 @@ app.controller('RightPlayer', function($scope, UtilsFact){
 
 	$scope.addGod = function(god, $event){
 		$event.stopImmediatePropagation();
-		UtilsFact.insertGod(god, $scope.chosenGods);
-		UtilsFact.removeGod(god, $scope.gods);
+		if ($scope.chosenGods.length === 0) {
+			UtilsFact.insertGod(god, $scope.chosenGods);
+			UtilsFact.removeGod(god, $scope.gods);
+		}
 
 	};
 
 	$scope.removeGod = function(god, $event){
 		$event.stopImmediatePropagation();
-
-		UtilsFact.insertGod(god, $scope.gods);
-		UtilsFact.removeGod(god, $scope.chosenGods);
+		if ($scope.chosenGods.length > 0) {
+			UtilsFact.insertGod(god, $scope.gods);
+			UtilsFact.removeGod(god, $scope.chosenGods);
+		}
 
 	};
 });

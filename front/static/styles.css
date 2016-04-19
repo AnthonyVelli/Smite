@@ -1,44 +1,133 @@
-.body{
+body{
+  background-image: url("/static/background.jpg");
   height: 100vh;
   position: fixed;
+  font-family: 'Open Sans';
+  width: 100%;
+  color: #fdfcf8;
 }
 
 
 
 .flexcontainer{
-  margin: 0;
-  height: 90vh;
+  
+  height: 80vh;
   display: flex;
   
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 
   
-}
-
-.all-gods { 
-  width: 20%;
-  overflow-y: scroll; 
-}
-
-
-.fighting-gods{ 
-  width: 75%;
-  max-height: 70vh;  
 }
 
 
 .player-half {
-  width: 90%;
+  width: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 
+.fighting-gods{ 
+  
+  width: auto;
+  max-height: 70vh;  
+}
+
+
+.all-gods { 
+  
+  width: 40vh;
+  height: 70vh;
+  
+  overflow-y: scroll;
+  background-image: url("/static/border.png");
+  background-size: 90% 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+
+god-list{
+  width: 100%;
+  flex-direction: column;
+  display:flex;
+  justify-content: flex-end;
+}
+
+god {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid #b1966f;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.god-popover {
+  z-index: 5000;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+.god-minimal {
+  width:100%;
+
+}
+
+avpopover {
+  width: 50px;
+  height: 50px;
+  z-index: 500;
+  background: yellow;
+  display: none;
+}
+
+
+.list-group{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  
+}
+
+.left{
+  justify-content: flex-start;
+  margin-left: 20px;
+  
+}
+
+.right{
+  justify-content: flex-end;
+  margin-right: 20px;
+  
+}
+
+.right .god-popover {
+  /*text-align: right;*/
+  direction: rtl;
+}
+.right-text{
+  
+}
+
+ul {
+  padding-right: 0px;
+}
+
+
+h3{
+  margin-top: 10px;
+}
+
+
+
+
 .fight {
-  height: 10vh;
-  position: fixed;
+  height: 20vh;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,8 +137,9 @@
 } 
 
 .progress-bar-container{
-  width: 70vw;
-  float: left;
+  width: 80vw;
+  display: none;
+
 }
 
 #fight-button{
@@ -59,6 +149,10 @@
 
 .progress-bar{
   height: 100%;
-  width: 80vw;
+}
+
+.progress-bar-immediate-container{
+  width: 100%;
+  display: inline-block;
 }
 

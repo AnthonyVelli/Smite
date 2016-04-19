@@ -4,7 +4,8 @@ app.directive('godList', function(){
     restrict: 'E',
     scope: {
         godList: '=',
-        action: '&'
+        action: '&',
+        side: '@',
     },
     templateUrl: './angularElements/players/godList_Template.html'
   };

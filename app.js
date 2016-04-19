@@ -1,5 +1,4 @@
 var express = require('express');
-var God = require('./db');
 var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
@@ -16,17 +15,17 @@ app.use(express.static('./front'));
 
 app.use('/api', router);
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
 	res.sendFile(__dirname+'/front/index.html');
-});
-
-app.use(function(req, res, next){
-	res.sendStatus(500);
 });
 
 app.use(function(error, req, res, next){
 	res.status(500).send('in error route '+error);
 });
+app.use(function(req, res, next){
+	res.sendStatus(500);
+});
+
 
 var port = 3030;
 
