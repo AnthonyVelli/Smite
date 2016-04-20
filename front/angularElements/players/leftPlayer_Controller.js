@@ -1,7 +1,11 @@
 app.controller('LeftPlayer', function($scope, UtilsFact, FightFact){
 	$scope.gods = $scope.$parent.LeftGods;
 	$scope.chosenGods = $scope.$parent.LeftChosenGods;
-	
+	$scope.search = {
+		text: '',
+		order: ''
+
+	};
 
 	$scope.addGod = function(god, $event){
 		$event.stopImmediatePropagation();

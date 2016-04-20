@@ -31,15 +31,25 @@
 
 		
 			<div class='player-half left' ng-controller="LeftPlayer">
-				
-					<div class='all-gods'>					
-						<god-list class='left-text' god-list="gods" side="left" action="addGod"></god-list>	
-					</div>
-							
-					<div class='fighting-gods'>
-						<god-list god-list="chosenGods"  action="removeGod"></god-list>
-					</div>
-
+				<div class='gods-filter'>
+					<form class='god-filter' name='god-filter'>
+						<div class='god-sorts'>
+							<button ng-click='search.atk = true' type='button'>ATK</button>	
+							<button ng-click='search.order = Attack' type='button'>DEF</button>	
+							<button ng-click='search.order = "Speed"' type='button'>SPD</button>	
+							<p>{{search}}</p>
+						</div>
+						<input class='god-filter' ng-model="search.text"></label>	
+					</form>
+					<div class='hide-scroll'>
+						<div class='all-gods'>
+							<god-list class='left-text' search='search' god-list="gods" side="left" action="addGod"></god-list>	
+						</div>
+					</div>	
+				</div>
+						<div class='fighting-gods'>
+							<god-list god-list="chosenGods"  action="removeGod"></god-list>
+						</div>
 					
 			</div>
 			<div class='player-half right' ng-controller="RightPlayer">
@@ -47,8 +57,11 @@
 					<div class='fighting-gods'>
 						<god-list god-list="chosenGods"  action="removeGod" ></god-list>
 					</div>
+					<div class='hide-scroll'>		
 					<div class='all-gods' >
-						<god-list god-list="gods" action="addGod"side="right"></god-list>
+						<label>Search: <input class='god-filter' ng-model="searchText"></label>
+						<god-list god-list="gods" search='searchText' action="addGod"side="right"></god-list>
+					</div>
 					</div>
 				
 			</div>

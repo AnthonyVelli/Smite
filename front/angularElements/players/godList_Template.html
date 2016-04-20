@@ -1,7 +1,9 @@
 
+	<!-- ng-click='action()(god, $event) -->
 	
-		<god type="button" ng-repeat="god in godList" ng-click='action()(god, $event)'ng-class='side'>
-			<div class="god-popover"  ng-controller="PopoverCtrl" ng-mouseover='showPopover(god, $event, side)' ng-mouseleave='hidePopover()'>
+		<god type="button" ng-repeat="god in godList | filter: {God: search.text} | orderBy: search.order" ng-class='side'>
+		
+			<div class="god-popover"  ng-controller="PopoverCtrl" ng-mouseenter='showPopover(god, $event, side)' ng-mouseout='hidePopover()'>
 				<div class='god-minimal'>
 					<h3>{{god.God}}</h3>
 					<ul class="list-group">
