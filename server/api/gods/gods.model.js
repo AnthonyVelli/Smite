@@ -1,3 +1,4 @@
+'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -16,21 +17,23 @@ function spaceBetweenWords(field){
 	return field.replace(/([a-z])([A-Z])/, (match, p1, p2) => p1+' '+p2);
 }
 
-function prosToArray(field){
-	var re = /High|Medium/g;
-	var lastIndex = 0;
-	var prosArray = [];
-	var count = 0;
-	while ((match = re.exec(field)) != null) {
-    	if (count > 0){
-    		prosArray.push(field.substring(lastIndex, match.index-1));
-    		lastIndex = match.index;	
-    	}
-      	count++;
-	}
-	prosArray.push(field.substring(lastIndex, field.length))
-	return prosArray;
-}
+// function prosToArray(field){
+// 	var re = /High|Medium/g;
+// 	var lastIndex = 0;
+// 	var prosArray = [];
+// 	var count = 0;
+// 	let match = re.exec(field);
+// 	while (match) {
+// 		let match = re.exec(field);
+//     	if (count > 0){
+//     		prosArray.push(field.substring(lastIndex, match.index-1));
+//     		lastIndex = match.index;	
+//     	}
+//       	count++;
+// 	}
+// 	prosArray.push(field.substring(lastIndex, field.length));
+// 	return prosArray;
+// }
 
 var godSchema = new Schema({
 	God: {type: String, required: true},
@@ -39,7 +42,7 @@ var godSchema = new Schema({
 	Pantheon: {type: String},
 	Type: {type: String, get: spaceBetweenWords},
 	Class: {type: String},
-	Pros: {type: String, get: prosToArray},
+	Pros: {type: String},
 	Difficulty: {type: String},
 	Release_date: {type: String},
 	Favor: {type: String},
@@ -68,8 +71,7 @@ var godSchema = new Schema({
 	HP5_Growth_Rate: {type: String, get: returnFLOAT},
 	MP5: {type: Number},
 	MP5_Growth_Rate: {type: String, get: returnFLOAT}
-},
-{
+}, {
 	toObject: {virtuals: true, getters: true},
 	toJSON: {virtuals: true, getters: true}
 });
@@ -84,9 +86,4 @@ godSchema.virtual('Damage_Growth_Rate_Inc').get(function(){
 	return returnDecimalFLOAT(this.Damage_Growth_Rate_2.split(' of ')[0]);
 });
 
-var godModel = mongoose.model('gods', godSchema);
-
-
-
-
-module.exports = godModel;
+mongoose.model('gods', godSchema);

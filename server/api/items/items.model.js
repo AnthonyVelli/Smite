@@ -17,4 +17,4 @@ var itemSchema = new Schema({
 // 		typeof prop[Object.keys(prop)] == 'string' && prop[Object.keys(prop)[0]] = prop[Object.keys(prop)]
 // }
 
-module.exports = mongoose.model('items', itemSchema);
+mongoose.model('items', itemSchema);

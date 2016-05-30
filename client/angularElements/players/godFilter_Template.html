@@ -1,0 +1,19 @@
+<form  class='filter-box' name='god-filter'>
+	<div class='god-sorts' ng-click='filter(arg, $event)'>
+		<button  ng-click='search.filter = "Mage"' type='button'>MAG</button>	
+		<button  ng-click='search.filter = "Hunter"' type='button'>HUN</button>	
+		<button  ng-click='search.filter = "Warrior"' type='button'>WAR</button>	
+		<button  ng-click='search.filter = "Assassin"' type='button'>ASS</button>	
+		<button  ng-click='search.filter = "Guardian"' type='button'>GUA</button>	
+	</div>
+	<div class='god-sorts'>
+		<button ng-click='search.order = "Damage"' type='button'>ATK</button>	
+		<button ng-click='search.order = "Attack_Sec"' type='button'>ATK/s</button>	
+		<button ng-click='search.order = "Speed"' type='button'>SPD</button>	
+		<button ng-click='search.order = "Health"' type='button'>HP</button>	
+		<button ng-click='search.order = "Mana"' type='button'>MP</button>	
+		<button ng-click='search.order = "Physical"' type='button'>PHYS</button>	
+		<button ng-click='search.order = "Magical"' type='button'>MAG</button>	
+	</div>
+	<input ng-model="search.text"></label>	
+</form>

@@ -1,19 +1,19 @@
-var express = require('express');
-var _ = require ('lodash');
-var router = express.Router();
-var Gods = require('../../db').Gods;
-var Items = require('../../db').Items;
+'use strict';
+import godsRouter from './gods';
+import itemsRouter from './items';
 
-router.get('/gods', function(req, res, next){
-	Gods.find().select('God Class Pros Type Health Health_Growth_Rate Mana Mana_Growth_Rate Speed Speed_Growth_Rate Range Range_Growth_Rate Attack_Sec Attack_Sec_Growth_Rate Damage Damage_Growth_Rate Damage_Growth_Rate_2 Damage_Growth_Rate_Type Damage_Growth_Rate_Inc Progression Physical Physical_Growth_Rate Magical Magical_Growth_Rate HP5 HP5_Growth_Rate MP5 MP5_Growth_Rate')
-	.then(gods => res.send(gods))
-	.catch(next);
+export default (app => {
+	app.use('/api/gods', godsRouter);
+	app.use('/api/items', itemsRouter);
+	app.get('/', (req, res) => {
+		res.sendFile(__dirname+'/front/index.html');
+	});
+
+	app.use((error, req, res, next) => {
+		res.status(500).send('in error route '+error);
+	});
+
+	app.use((req, res, next) => {
+		res.sendStatus(500);
+	});
 });
-
-router.get('/items', function(req, res, next){
-	Items.find()
-	.then(items => res.send(items))
-	.catch(next);
-});
-
-module.exports = router;

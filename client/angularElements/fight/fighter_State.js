@@ -15,6 +15,18 @@ app.config(['$stateProvider', function($stateProvider, $stateParams){
 				return $stateParams.RightFighters;
 			}
 		}
-
+	});
+	  $stateProvider.state('fighter', {
+	    url: '/fight',
+	    templateUrl: '/angularElements/popover/popover_Template.html',
+	    controller: 'PlayerFightersController',
+	    params:{
+	    	fighter: null
+	    },
+	    resolve: {
+	      	fighter: function($stateParams){
+	        	return $stateParams;
+	      	}
+	    }
 	});
 }]);

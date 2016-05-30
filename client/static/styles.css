@@ -9,14 +9,10 @@ body{
 
 
 .flexcontainer{
-  
   height: 80vh;
   display: flex;
-  
   flex-direction: row;
   justify-content: center;
-
-  
 }
 
 
@@ -33,30 +29,42 @@ body{
   max-height: 70vh;  
 }
 
-.hide-scroll {
-  overflow: hidden;
-}
 
-.all-gods { 
-  margin-right: -20px;
-  padding-right: 20px;
-  width: 40vh;
-  height: 70vh;
-  
-  overflow-y: scroll;
-  background-image: url("/static/border.png");
-  background-size: 90% 120%;
-  background-position: left center;
-  background-repeat: no-repeat;
-}
-
-.gods-filter {
+.all-gods-container {
   color: black;
-  position: fixed;
+  width: 25%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
 
 }
+
+.god-sorts{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+input {
+  margin-top: 5%;
+  width: 100%;
+}
+  .all-gods { 
+    margin-right: -20px;
+    padding-right: 20px;
+    height: 70vh;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url("/static/border.png");
+    background-size: 90% 120%;
+    background-position: left center;
+    background-repeat: no-repeat;
+  }
+
+
 
 god-list{
   color: #fdfcf8;
@@ -87,15 +95,15 @@ god {
 
 }
 
-avpopover {
-  width: 200px;
-  height: 100px;
-  z-index: 500;
-  float: left;
-  position: fixed;
-  background-position: center;
-  display: none;
-  background-image: url("/static/border.png");
+.popover {
+  max-width: 450px;
+
+}
+
+.avpopover{
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -107,36 +115,12 @@ avpopover {
   
 }
 
-.left{
-  justify-content: flex-start;
-  margin-left: 20px;
+god-filter{
+  margin: 10px 0;
+  border-width: 10px
+
   
 }
-
-.right{
-  justify-content: flex-end;
-  margin-right: 20px;
-  
-}
-
-.right .god-popover {
-  /*text-align: right;*/
-  direction: rtl;
-}
-.right-text{
-  
-}
-
-ul {
-  padding-right: 0px;
-}
-
-
-h3{
-  margin-top: 10px;
-}
-
-
 
 
 .fight {
@@ -156,10 +140,6 @@ h3{
 
 }
 
-#fight-button{
-
-}
-
 
 .progress-bar{
   height: 100%;
@@ -170,3 +150,51 @@ h3{
   display: inline-block;
 }
 
+
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+
+}
+.flex-row{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.flex-right{
+  flex-direction: row-reverse;
+}
+
+.flex-left{
+  flex-direction: row; 
+}
+
+ul {
+  padding-right: 0px;
+}
+.inherit-flex{
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+}
+
+.left{
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+  
+}
+
+.right{
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 20px;
+  
+}
+
+.right .god-popover {
+  
+  direction: rtl;
+}

@@ -1,0 +1,17 @@
+
+		<god type="button" ng-repeat="god in godList | filter: {God: search.text, Class: search.filter} | orderBy: search.order" ng-class='side'>
+		
+			<div class="god-popover"  ng-controller="PopoverCtrl" popover-trigger="{{dynamicPopover.trigger}}" popover-placement="{{dynamicPopover.placement.selected}}" uib-popover-template="dynamicPopover.templateUrl" popover-content="{{god}}" >
+				<div class='god-minimal'>
+					<div class='flex-row' ng-class='flex-{{side}}'>
+						<h3>{{god.God}}</h3>
+						<h4>{{god.Class}}</h4>
+					</div>
+					<ul class="flex-column list-group">
+					  <li>{{god.Type}}</li>
+					  <li ng-repeat="pro in god.Pros">{{pro}}</li>
+					</ul>
+				</div>		
+			</div>
+		</god>
+
